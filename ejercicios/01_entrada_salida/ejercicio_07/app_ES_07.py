@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Tomas Leon
+apellido: Curto Eivers
 ---
 Ejercicio: entrada_salida_07
 ---
@@ -50,16 +50,35 @@ class App(customtkinter.CTk):
         self.btn_dividir.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_sumar_on_click(self):
-        pass
+        operador_a = int(self.txt_operador_a.get())
+        operador_b = int(self.txt_operador_b.get())
+        operador_c = int(operador_a+operador_b)
+        mensaje= "El resultado de la suma es: " + str(operador_c)
+        alert("EJ 07", message=mensaje)
 
     def btn_restar_on_click(self):
-        pass
+        operador_a = int(self.txt_operador_a.get())
+        operador_b = int(self.txt_operador_b.get())
+        operador_c = int(operador_a-operador_b)
+        mensaje= "El resultado de la resta es: " + str(operador_c)
+        alert("EJ 07", message=mensaje)
 
     def btn_multiplicar_on_click(self):
-        pass
+        operador_a = int(self.txt_operador_a.get())
+        operador_b = int(self.txt_operador_b.get())
+        operador_c = int(operador_a*operador_b)
+        mensaje= "El resultado de la multiplcación es: " + str(operador_c)
+        alert("EJ 07", message=mensaje)
 
     def btn_dividir_on_click(self):
-        pass
+        operador_a = int(self.txt_operador_a.get())
+        operador_b = int(self.txt_operador_b.get())
+        if operador_b==0:
+            alert(title="EJ 07", message="No se puede dividir por cero")
+        else:
+            operador_c = int(operador_a/operador_b)
+            mensaje= "El resultado de la división es: " + str(operador_c)
+            alert("EJ 07", message=mensaje)
         
 if __name__ == "__main__":
     app = App()

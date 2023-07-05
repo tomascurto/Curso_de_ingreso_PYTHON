@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Tomas Leon
+apellido: Curto Eivers
 ---
 Ejercicio: entrada_salida_08
 ---
@@ -41,7 +41,16 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        operador_a = int(self.txt_operador_a.get())
+        operador_a_texto = str(operador_a)
+        operador_b = int(self.txt_operador_b.get())
+        operador_b_texto = str(operador_b)
+        if operador_b==0:
+            alert(title="EJ 07", message="No se puede dividir por cero")
+        else:
+            operador_c = int(operador_a%operador_b)
+            mensaje= "El resto de dividir "+ operador_a_texto+ " por " + operador_b_texto + " es " +str(operador_c)
+            alert("EJ 07", message=mensaje)
         
         
     
