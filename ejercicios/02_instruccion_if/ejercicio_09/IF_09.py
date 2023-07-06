@@ -7,8 +7,8 @@ import random
 
 
 '''
-nombre:
-apellido:
+nombre: Tomas Leon
+apellido: Curto Eivers
 ---
 Ejercicio: instrucion_if_09
 ---
