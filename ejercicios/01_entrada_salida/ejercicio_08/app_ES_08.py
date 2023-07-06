@@ -46,11 +46,11 @@ class App(customtkinter.CTk):
         operador_b = int(self.txt_operador_b.get())
         operador_b_texto = str(operador_b)
         if operador_b==0:
-            alert(title="EJ 07", message="No se puede dividir por cero")
+            alert(title="EJ 08", message="No se puede dividir por cero")
         else:
             operador_c = int(operador_a%operador_b)
             mensaje= "El resto de dividir "+ operador_a_texto+ " por " + operador_b_texto + " es " +str(operador_c)
-            alert("EJ 07", message=mensaje)
+            alert("EJ 08", message=mensaje)
         
         
     
