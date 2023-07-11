@@ -11,6 +11,9 @@ Todas las lámparas están  al mismo precio de $800 pesos final.
 		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
 		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
 		E.	Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
+
+nombre: Tomas Leon
+apellido: Curto Eivers
 '''
 
 class App(customtkinter.CTk):
@@ -38,7 +41,56 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca = self.combobox_marca.get()
+        cantidad = int(self.combobox_cantidad.get())
+        precio_unitario = 800
+        precio_base = precio_unitario * cantidad
+        if cantidad >= 6:
+            porcentaje = 50
+            descuento = precio_base * (porcentaje/100)
+        elif cantidad == 5:
+            if marca == "ArgentinaLuz":
+                porcentaje = 40
+                descuento = precio_base * (porcentaje/100)
+            else:
+                porcentaje = 30
+                descuento = precio_base * (porcentaje/100)
+        elif cantidad == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                porcentaje = 25
+                descuento = precio_base * (porcentaje/100)
+            else:
+                porcentaje = 20
+                descuento = precio_base * (porcentaje/100)
+        elif cantidad == 3:
+            if marca == "ArgentinaLuz":
+                porcentaje = 15
+                descuento = precio_base * (porcentaje/100)
+            elif marca == "FelipeLamparas":
+                porcentaje = 10
+                descuento = precio_base * (porcentaje/100)
+            else:
+                porcentaje = 5
+                descuento = precio_base * (porcentaje/100)
+        else:
+            descuento = 0
+        precio_descontado = precio_base - descuento
+        precio_descontado_str = str(precio_descontado)
+        precio_base_str = str(precio_base)
+        descuento_str = str(descuento)
+        if cantidad >=3:
+            porcentaje_str = str(porcentaje)
+            if precio_descontado >= 4000:
+                segundo_descuento = precio_descontado * (5/100)
+                precio_final = precio_descontado - segundo_descuento
+                precio_final_str = str(precio_final)
+                mensaje = "Al precio base de $" + precio_base_str + " se le aplica un " + porcentaje_str + "% de descuento, y al sobrepasar los $4000 se le aplica otro 5% de descuento quedando el precio final de $" + precio_final_str
+            elif precio_descontado < 4000:
+                mensaje = "Al precio base de $" + precio_base_str + " se le aplica un " + porcentaje_str + "% de descuento, quedando el precio final de $" + precio_descontado_str
+        else:
+            mensaje = "El precio final es de $" + precio_descontado_str
+        alert("TP 04", mensaje)    
+
         
     
 if __name__ == "__main__":
