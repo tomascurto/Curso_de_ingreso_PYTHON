@@ -16,7 +16,13 @@ en función del mes seleccionado:
     Si el mes seleccionado es Diciembre: ‘Felices fiestas!!!’
 
 En caso de seleccionar un mes distinto a los mencionados, no hacer nada
+
+nombre: Tomas Leon
+apellido: Curto Eivers
+
 '''
+
+
 
 
 class App(customtkinter.CTk):
@@ -37,7 +43,18 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        mes = self.combobox_mes.get()
+        if mes == "Enero":
+            mensaje = "que comiences bien el año!!!"
+        elif mes == "Marzo":
+            mensaje =  "a clases!!"
+        elif mes == "Julio":
+            mensaje = "se vienen las vacaciones!!"
+        elif mes == "Diciembre":
+            mensaje = "Felices fiestas!!!"
+        if mes == "Enero" or mes == "Marzo" or mes == "Julio" or mes == "Diciembre":
+            alert("EJ 01", mensaje)
+
     
     
 if __name__ == "__main__":

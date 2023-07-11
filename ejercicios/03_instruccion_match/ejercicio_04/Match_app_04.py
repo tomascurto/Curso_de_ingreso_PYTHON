@@ -12,6 +12,9 @@ en función del mes seleccionado:
     Si tiene 28 días
     Si tiene 30 días
     Si tiene 31 días
+
+nombre: Tomas Leon
+apellido: Curto Eivers
 '''
 
 
@@ -33,7 +36,21 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        # tiene 28 días
+        # tiene 30 días
+        # tiene 31 días
+        # 28: "Febrero"
+        # 30: "Abril" "Junio" "Septiembre" "Noviembre"
+        # 31: resto
+        mes = self.combobox_mes.get()
+        mes_str = str(mes)
+        if mes == "Febrero":
+            mensaje = " tiene 28 días"
+        elif mes == "Abril" or mes == "Junio" or mes == "Septiembre" or mes == "Noviembre":
+            mensaje = " tiene 30 días"
+        else:
+            mensaje = " tiene 31 días"
+        alert("EJ 04", mes_str + mensaje)
     
 if __name__ == "__main__":
     app = App()

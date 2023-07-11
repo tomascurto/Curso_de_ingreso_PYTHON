@@ -12,6 +12,9 @@ mensajes en función del mes seleccionado:
     Si es febrero: ‘Este mes no tiene más de 29 días’
     Si no es febrero: ‘Este mes tiene 30 días o mas’
 
+nombre: Tomas Leon
+apellido: Curto Eivers
+
 '''
 
 
@@ -33,7 +36,12 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        mes = self.combobox_mes.get()
+        if mes == "Febrero":
+            mensaje = "Este mes no tiene más de 29 días"
+        else:
+            mensaje = "Este mes tiene 30 días o mas"
+        alert("EJ 03", mensaje)
     
     
 if __name__ == "__main__":

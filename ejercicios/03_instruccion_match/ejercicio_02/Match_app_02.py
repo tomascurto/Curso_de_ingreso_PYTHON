@@ -15,7 +15,13 @@ en función del mes seleccionado:
 	
 Aclaracion: tomamos a Julio y Agosto como los meses de invierno
 
+nombre: Tomas Leon
+apellido: Curto Eivers
+
 '''
+# Enero, Febrero, Marzo, Abril, Mayo, Junio - ¡Falta para el invierno..!
+# Julio, Agosto - ¡Abrígate que hace frío!
+# Septiembre, Octubre, Noviembre, Diciembre - ¡Ya pasamos frío, ahora calor!
 
 
 class App(customtkinter.CTk):
@@ -36,8 +42,17 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
-    
+        # Enero, Febrero, Marzo, Abril, Mayo, Junio - ¡Falta para el invierno..!
+        # Julio, Agosto - ¡Abrígate que hace frío!
+        # Septiembre, Octubre, Noviembre, Diciembre - ¡Ya pasamos frío, ahora calor!
+        mes = self.combobox_mes.get()
+        if mes == "Julio" or mes == "Agosto":
+            mensaje = "¡Abrígate que hace frío!"
+        elif mes == "Septiembre" or mes == "Octubre" or mes == "Noviembre" or mes == "Diciembre":
+            mensaje = "¡Ya pasamos frío, ahora calor!"
+        else:
+            mensaje = "¡Falta para el invierno..!"
+        alert ("EJ 02", mensaje)
     
 if __name__ == "__main__":
     app = App()
