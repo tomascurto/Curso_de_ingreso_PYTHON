@@ -43,52 +43,32 @@ class App(customtkinter.CTk):
     def btn_calcular_on_click(self):
         marca = self.combobox_marca.get()
         cantidad = int(self.combobox_cantidad.get())
-        precio_unitario = 800
-        precio_base = precio_unitario * cantidad
+        precio = 800 * cantidad
         if cantidad >= 6:
             porcentaje = 50
-            descuento = precio_base * (porcentaje/100)
         elif cantidad == 5:
             if marca == "ArgentinaLuz":
                 porcentaje = 40
-                descuento = precio_base * (porcentaje/100)
             else:
                 porcentaje = 30
-                descuento = precio_base * (porcentaje/100)
         elif cantidad == 4:
             if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
                 porcentaje = 25
-                descuento = precio_base * (porcentaje/100)
             else:
                 porcentaje = 20
-                descuento = precio_base * (porcentaje/100)
         elif cantidad == 3:
             if marca == "ArgentinaLuz":
                 porcentaje = 15
-                descuento = precio_base * (porcentaje/100)
             elif marca == "FelipeLamparas":
                 porcentaje = 10
-                descuento = precio_base * (porcentaje/100)
             else:
                 porcentaje = 5
-                descuento = precio_base * (porcentaje/100)
         else:
-            descuento = 0
-        precio_descontado = precio_base - descuento
-        precio_descontado_str = str(precio_descontado)
-        precio_base_str = str(precio_base)
-        descuento_str = str(descuento)
-        if cantidad >=3:
-            porcentaje_str = str(porcentaje)
-            if precio_descontado >= 4000:
-                segundo_descuento = precio_descontado * (5/100)
-                precio_final = precio_descontado - segundo_descuento
-                precio_final_str = str(precio_final)
-                mensaje = "Al precio base de $" + precio_base_str + " se le aplica un " + porcentaje_str + "% de descuento, y al sobrepasar los $4000 se le aplica otro 5% de descuento quedando el precio final de $" + precio_final_str
-            elif precio_descontado < 4000:
-                mensaje = "Al precio base de $" + precio_base_str + " se le aplica un " + porcentaje_str + "% de descuento, quedando el precio final de $" + precio_descontado_str
-        else:
-            mensaje = "El precio final es de $" + precio_descontado_str
+            porcentaje = 0
+        precio = precio - precio * (porcentaje/100)
+        if precio >= 4000:
+            precio = precio - precio * (5/100)
+        mensaje = "El precio final es de $" + str(precio)
         alert("TP 04", mensaje)    
 
         
