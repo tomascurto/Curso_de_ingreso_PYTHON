@@ -23,6 +23,9 @@ en función de la estación del año y del destino elegido:
         Mar del plata tiene un aumento del 10%
         Córdoba tiene precio sin descuento
 
+nombre: Tomas Leon
+apellido: Curto Eivers
+
 '''
 
 
@@ -52,7 +55,34 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        precio = 15000
+        estación = self.combobox_estaciones.get()
+        destino = self.combobox_destino.get()
+        match estación:
+            case "Invierno":
+                match destino:
+                    case "Bariloche":
+                        precio = precio + precio  * 0.2
+                    case "Mar del plata":
+                        precio = precio - precio * 0.2
+                    case _:
+                        precio = precio - precio * 0.1
+            case "Verano":
+                match destino:    
+                    case "Bariloche":
+                        precio = precio - precio * 0.2
+                    case "Mar del plata":
+                        precio = precio + precio  * 0.2
+                    case _:
+                        precio = precio + precio * 0.1
+            case "Otoño" | "Primavera":
+                match destino:
+                    case "Cordoba":
+                        pass
+                    case _:
+                        precio = precio + precio * 0.1
+        alert("Ej 09", "El precio final es de $"+ str(precio))
+
             
     
 if __name__ == "__main__":

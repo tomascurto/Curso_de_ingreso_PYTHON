@@ -46,12 +46,13 @@ class App(customtkinter.CTk):
         # Julio, Agosto - ¡Abrígate que hace frío!
         # Septiembre, Octubre, Noviembre, Diciembre - ¡Ya pasamos frío, ahora calor!
         mes = self.combobox_mes.get()
-        if mes == "Julio" or mes == "Agosto":
-            mensaje = "¡Abrígate que hace frío!"
-        elif mes == "Septiembre" or mes == "Octubre" or mes == "Noviembre" or mes == "Diciembre":
-            mensaje = "¡Ya pasamos frío, ahora calor!"
-        else:
-            mensaje = "¡Falta para el invierno..!"
+        match mes:
+            case "Julio" | "Agosto":
+                mensaje = "¡Abrígate que hace frío!"
+            case "Septiembre" | "Octubre" | "Noviembre" | "Diciembre":
+                mensaje = "¡Ya pasamos frío, ahora calor!"
+            case _:
+                mensaje = "¡Falta para el invierno..!"
         alert ("EJ 02", mensaje)
     
 if __name__ == "__main__":

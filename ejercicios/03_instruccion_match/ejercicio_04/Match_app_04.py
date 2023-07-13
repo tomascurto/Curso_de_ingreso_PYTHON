@@ -44,12 +44,13 @@ class App(customtkinter.CTk):
         # 31: resto
         mes = self.combobox_mes.get()
         mes_str = str(mes)
-        if mes == "Febrero":
-            mensaje = " tiene 28 días"
-        elif mes == "Abril" or mes == "Junio" or mes == "Septiembre" or mes == "Noviembre":
-            mensaje = " tiene 30 días"
-        else:
-            mensaje = " tiene 31 días"
+        match mes:
+            case "Febrero":
+                mensaje = " tiene 28 días"
+            case "Abril" | "Junio" | "Septiembre" | "Noviembre":
+                mensaje = " tiene 30 días"
+            case _:
+                mensaje = " tiene 31 días"
         alert("EJ 04", mes_str + mensaje)
     
 if __name__ == "__main__":

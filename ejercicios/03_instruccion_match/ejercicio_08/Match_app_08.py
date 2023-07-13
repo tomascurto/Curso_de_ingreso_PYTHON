@@ -10,6 +10,9 @@ Enunciado:
 Obtener el destino seleccionado en el combobox_destino, luego al presionar el botón 
 ‘Informar’ indicar mediante alert si en el destino hace frío o calor la mayoría 
 de las estaciones del año.
+
+nombre: Tomas Leon
+apellido: Curto Eivers
 '''
 
 
@@ -29,7 +32,14 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        destino = self.combobox_destino.get()
+        mensaje = None
+        match destino:
+            case "Bariloche" | "Ushuaia":
+                mensaje = "Hace frío la mayor parte del año"
+            case "Mar del plata" | "Cataratas":
+                mensaje = "Hace calor la mayor parte del año"
+        alert("EJ 08", mensaje)
     
     
 if __name__ == "__main__":

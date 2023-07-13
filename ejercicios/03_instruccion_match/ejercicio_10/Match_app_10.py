@@ -13,6 +13,9 @@ caso contrario mostrar “No se viaja”.
     Si es verano: se viaja a Mar del plata y Cataratas
     Si es otoño: se viaja a todos los lugares
     Si es primavera: se viaja a todos los lugares menos Bariloche
+
+nombre: Tomas Leon
+apellido: Curto Eivers
 '''
 
 
@@ -42,7 +45,33 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        mensaje = None
+        estación = self.combobox_estaciones.get()
+        destino = self.combobox_destino.get()
+        match estación:
+            case "Invierno": #Si es invierno: solo se viaja a Bariloche
+                match destino:
+                    case "Bariloche":
+                        mensaje = "Se viaja"
+                    case _:
+                        mensaje = "No se viaja"
+            case "Verano": #Si es verano: se viaja a Mar del plata y Cataratas
+                match destino:    
+                    case "Mar del plata" | "Cataratas":
+                        mensaje = "Se viaja"
+                    case _:
+                        mensaje = "No se viaja"
+            case "Otoño": #Si es otoño: se viaja a todos los lugares
+                mensaje = "Se viaja"
+            case "Primavera": #Si es primavera: se viaja a todos los lugares menos Bariloche
+                match destino:
+                    case "Bariloche":
+                        mensaje = "No se viaja"
+                    case _:
+                        mensaje = "Se viaja"
+        alert("EJ 10", mensaje)
+    
+    
             
     
 if __name__ == "__main__":
