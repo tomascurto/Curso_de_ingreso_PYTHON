@@ -10,6 +10,9 @@ Enunciado:
 Al presionar el botón ‘Validar letra’, mediante prompt solicitar al usuario que ingrese una letra. 
 Se deberá validar que la letra sea ‘U’, ‘T’ o ‘N’ (en mayusculas) 
 En caso no coincidir con ninguna de las letras, volverla a solicitar hasta que la condición se cumpla
+
+nombre: Tomas Leon
+apellido: Curto Eivers
 '''
 
 
@@ -25,7 +28,21 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_letra_on_click(self):
-        pass
+        letra = prompt("EJ 05", "Ingrse una letra")
+        match letra:
+            case "U" | "T" | "N":
+                validez = True
+            case _:
+                validez = False
+        while validez == False:
+            alert ("EJ 05", "Intente nuevamente")
+            letra = prompt("EJ 05", "Ingrse otra letra")
+            match letra:
+                case "U" | "T" | "N":
+                    validez = True
+                case _:
+                    validez = False
+        alert ("EJ 05", "la letra es valida")
             
     
 if __name__ == "__main__":

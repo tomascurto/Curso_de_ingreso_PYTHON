@@ -10,6 +10,9 @@ Al presionar el botón ‘Comenzar ingreso’, solicitar 5 números mediante pro
 Calcular la suma acumulada y el promedio de los números ingresados. 
 Luego informar los resultados en las cajas de texto txt_suma_acumulada y txt_promedio
 
+nombre: Tomas Leon
+apellido: Curto Eivers
+
 '''
 
 class App(customtkinter.CTk):
@@ -31,7 +34,24 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+#solicitar 5 números mediante prompt. 
+        contador = 0
+        suma = 0
+        while contador <5:
+            numero = int(prompt("EJ 06", "Ingrese un número"))
+            suma += numero
+            contador += 1
+        promedio = suma / 5
+        self.txt_promedio.delete(0, 100000000)
+        self.txt_suma_acumulada.delete(0, 100000000)
+        self.txt_suma_acumulada.insert(0, str(suma))
+        self.txt_promedio.insert(0, str(promedio))
+
+
+
+#Calcular la suma acumulada
+#el promedio de los números ingresados. 
+#informar los resultados en las cajas de texto txt_suma_acumulada y txt_promedio
 
     
 if __name__ == "__main__":

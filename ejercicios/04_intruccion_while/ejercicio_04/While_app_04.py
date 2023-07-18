@@ -31,7 +31,7 @@ class App(customtkinter.CTk):
         numero = int(prompt("EJ 04", "Ingrse un número entre el 0 y el 9"))
         while numero < 0 or numero > 9:
             alert ("EJ 04", "el número ingresado no esta entre el 0 y el 9, intente nuevamente")
-            clave = prompt("EJ 04", "Ingrse un número entre el 0 y el 9")
+            numero = int(prompt("EJ 04", "Ingrse un número entre el 0 y el 9"))
         alert ("EJ 04", "El número ingresado es valido")
     
 if __name__ == "__main__":
