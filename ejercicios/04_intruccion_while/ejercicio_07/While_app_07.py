@@ -11,6 +11,9 @@ hasta que presione el botón Cancelar (en el prompt).
 Calcular la suma acumulada y el promedio de los números ingresados. 
 Luego informar los resultados en las cajas de texto txt_suma_acumulada y txt_promedio
 
+nombre: Tomas Leon
+apellido: Curto Eivers
+
 '''
 
 class App(customtkinter.CTk):
