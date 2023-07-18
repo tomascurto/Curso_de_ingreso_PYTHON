@@ -10,6 +10,9 @@ Enunciado:
 Al presionar el botón ‘Validar número’, mediante prompt solicitar al usuario que ingrese un número. 
 Se deberá validar que se encuentre entre 0 y 9 inclusive. En caso no coincidir con el rango, 
 volverlo a solicitar hasta que la condición se cumpla
+
+nombre: Tomas Leon
+apellido: Curto Eivers
 '''
 
 
@@ -25,7 +28,11 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_numero_on_click(self):
-        pass
+        numero = int(prompt("EJ 04", "Ingrse un número entre el 0 y el 9"))
+        while numero < 0 or numero > 9:
+            alert ("EJ 04", "el número ingresado no esta entre el 0 y el 9, intente nuevamente")
+            clave = prompt("EJ 04", "Ingrse un número entre el 0 y el 9")
+        alert ("EJ 04", "El número ingresado es valido")
     
 if __name__ == "__main__":
     app = App()

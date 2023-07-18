@@ -44,27 +44,31 @@ class App(customtkinter.CTk):
         marca = self.combobox_marca.get()
         cantidad = int(self.combobox_cantidad.get())
         precio = 800 * cantidad
-        if cantidad >= 6:
-            porcentaje = 50
-        elif cantidad == 5:
-            if marca == "ArgentinaLuz":
-                porcentaje = 40
-            else:
-                porcentaje = 30
-        elif cantidad == 4:
-            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
-                porcentaje = 25
-            else:
-                porcentaje = 20
-        elif cantidad == 3:
-            if marca == "ArgentinaLuz":
-                porcentaje = 15
-            elif marca == "FelipeLamparas":
-                porcentaje = 10
-            else:
-                porcentaje = 5
-        else:
-            porcentaje = 0
+        match cantidad:
+            case 5:
+                match marca:
+                    case "ArgentinaLuz":
+                        porcentaje = 40
+                    case _:
+                        porcentaje = 30
+            case 4:
+                match marca:
+                    case "ArgentinaLuz" | "FelipeLamparas":
+                        porcentaje = 25
+                    case _:
+                        porcentaje = 20
+            case 3:
+                match marca:
+                    case "ArgentinaLuz":
+                        porcentaje = 15
+                    case "FelipeLamparas":
+                        porcentaje = 10
+                    case _:
+                        porcentaje = 5
+            case 1 | 2 :
+                porcentaje = 0
+            case _:
+                porcentaje = 50
         precio = precio - precio * (porcentaje/100)
         if precio >= 4000:
             precio = precio - precio * (5/100)
