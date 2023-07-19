@@ -11,6 +11,9 @@ hasta que presione el botón Cancelar (en el prompt) o el usuario ingrese cero.
 Calcular la suma acumulada de los positivos y multiplicar los negativos. 
 Luego informar los resultados en las cajas de texto txt_suma_acumulada y txt_producto
 
+nombre: Tomas Leon
+apellido: Curto Eivers
+
 '''
 
 class App(customtkinter.CTk):
@@ -32,7 +35,21 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        producto = 1
+        suma = 0
+        numero = int(prompt("EJ 08", "Ingrese un número"))
+        while numero != None:
+            if numero >= 0:
+                suma += numero
+            else:
+                producto *= numero           
+            numero = prompt("EJ 08", "Ingrese otro número o ejecute el calculo presionando ¨cancelar¨")
+            if numero != None:
+                numero = int(numero)
+        self.txt_producto.delete(0, 100000000)
+        self.txt_suma_acumulada.delete(0, 100000000)
+        self.txt_suma_acumulada.insert(0, str(suma))
+        self.txt_producto.insert(0, str(producto))
 
     
 if __name__ == "__main__":

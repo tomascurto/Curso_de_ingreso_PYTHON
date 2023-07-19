@@ -35,8 +35,20 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
-
+        contador = 0
+        acumulador = 0
+        numero = int(prompt("EJ 07", "Ingrese un número"))
+        while numero != None:
+            contador += 1
+            acumulador += numero
+            numero = prompt("EJ 07", "Ingrese otro número o ejecute el calculo presionando ¨cancelar¨")
+            if numero != None:
+                numero = int(numero)
+        promedio = acumulador / contador
+        self.txt_promedio.delete(0, 100000000)
+        self.txt_suma_acumulada.delete(0, 100000000)
+        self.txt_suma_acumulada.insert(0, str(acumulador))
+        self.txt_promedio.insert(0, str(promedio))
     
 if __name__ == "__main__":
     app = App()
