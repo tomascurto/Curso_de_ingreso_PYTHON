@@ -13,6 +13,9 @@ Los datos requeridos son los siguientes:
     Edad, entre 18 y 90 años inclusive.
     Estado civil, ["Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"]
     Número de legajo, numérico de 4 cifras, sin ceros a la izquierda.
+
+    Apellido: Curto Eivers,
+    Nombre: Tomás León
 '''
 
 
@@ -50,8 +53,43 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
-
+        #ventanas emergentes solamente
+        #Apellido
+        apellido = prompt("Apellido", "Ingrese apellido")
+        while apellido.isalpha() == False:
+            apellido = prompt("Apellido", "Apellido solo acepta caracteres alfabéticos, intentelo de nuevo")
+        #Edad, entre 18 y 90 años inclusive.
+        edad = prompt("Edad", "Ingrese edad")
+        if edad.isdigit() == True:
+            edad_int = int(edad)
+        else:
+            edad_int=0
+        while edad_int < 18 or edad_int > 90:
+            edad = prompt ("Edad", "La edad debe ser un caracter numérico entre 18 y 90")
+            if edad.isdigit() == True:
+                edad_int = int(edad)
+            else:
+                edad_int=0 #use 0 debido a que siempre va a ser menor que 18, y elimina la posibilidad de error al comparar 18 y 90 con cualquier entrada que no se
+        #Estado civil, ["Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"]
+        estado_civil = prompt("Legajo", "Ingrese estado civil")
+        while estado_civil != "Soltero/a" and estado_civil != "Casado/a" and estado_civil != "Divorciado/a" and estado_civil != "Viudo/a":
+            estado_civil = prompt("Estado civil", "La respuesta debe ser escrita de la siguiente manera y entre estas opciones: ¨Soltero/a¨, ¨Casado/a¨, ¨Divorciado/a¨, ¨Viudo/a¨")
+        #Número de legajo, numérico de 4 cifras, sin ceros a la izquierda.
+        legajo = prompt("Legajo", "Ingrese el legajo")
+        if legajo.isdigit() == True:
+            legajo_int = int(legajo)
+        else:
+            legajo_int = 10000 # cuando compare 10000 siempre va a tener más de 4 digitos y no lo va a aceptar
+        while len(legajo) != 4 or legajo.isdigit() == False :
+            legajo = prompt("Legajo", "el legajo debe ser un caracter numérico de 4 digitos sin ceros a la izquierda")
+        #asignarla a cuadros de textos
+        self.txt_apellido.delete(0, 10000000)
+        self.txt_apellido.insert(0, apellido)
+        self.txt_edad.delete(0, 10000000)
+        self.txt_edad.insert(0, edad)
+        self.combobox_tipo.set(estado_civil)
+        self.txt_legajo.delete(0, 10000000)
+        self.txt_legajo.insert(0, legajo)
 
 if __name__ == "__main__":
     app = App()
