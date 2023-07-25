@@ -24,7 +24,16 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = int(prompt("EJ 08", "Ingrese un número"))
+        contador = 0
+        for i in range(1 ,numero,1):
+            if numero%i == 0:
+                contador +=1
+        if contador == 1 or numero == 1:
+            mensaje = str(numero)+" es un número primo"
+        else:
+            mensaje = str(numero)+" no es un número primo"
+        alert("EJ 08", mensaje)
     
 if __name__ == "__main__":
     app = App()

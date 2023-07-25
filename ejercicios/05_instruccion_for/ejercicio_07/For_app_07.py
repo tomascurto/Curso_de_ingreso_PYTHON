@@ -24,7 +24,13 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = int(prompt("EJ 07", "Ingrese un número"))
+        cantidad = 0
+        for i in range(1,numero+1,1):
+            if numero%i == 0:
+                alert("EJ 07", str(i)+" es divisor de "+str(numero))
+                cantidad +=1
+        alert("EJ 07", str(numero) + " tiene " + str(cantidad) + " de divisores.")
         
     
 if __name__ == "__main__":

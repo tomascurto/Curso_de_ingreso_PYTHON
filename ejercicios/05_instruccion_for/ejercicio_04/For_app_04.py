@@ -24,7 +24,12 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        for i in range (0,99999,1):
+            numero = prompt("EJ 04", "Ingrese un número")
+            if numero.isdigit() != True:
+                numero = 0
+            if int(numero) == 9:
+                break
         
     
 if __name__ == "__main__":

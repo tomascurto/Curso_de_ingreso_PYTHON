@@ -24,7 +24,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        for i in range (0,999999999,1):
+            desea_continuar = question("Ej 05", "¿Desea continuar?")
+            if desea_continuar == False:
+                break
+
         
     
 if __name__ == "__main__":
