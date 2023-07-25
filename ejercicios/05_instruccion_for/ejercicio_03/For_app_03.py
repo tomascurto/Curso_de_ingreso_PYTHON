@@ -8,6 +8,9 @@ import customtkinter
 Enunciado:
 Al presionar el botón Mostrar tomar del campo de texto cantidad de veces que se desea
 repetir el mensaje "Hola UTN FRA" (utilizando el Dialog Alert)
+
+Nombre: Tomás León 
+Apellido: Curto Eivers
 '''
 
 class App(customtkinter.CTk):

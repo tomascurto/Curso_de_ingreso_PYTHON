@@ -7,6 +7,8 @@ import customtkinter
 '''
 Al presionar el botón Mostrar pedir un número. mostrar los números divisores desde el 1 al número ingresado, 
 y mostrar la cantidad de números divisores encontrados.
+Nombre: Tomás León 
+Apellido: Curto Eivers
 '''
 
 class App(customtkinter.CTk):

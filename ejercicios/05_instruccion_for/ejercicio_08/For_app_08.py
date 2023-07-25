@@ -6,6 +6,9 @@ import customtkinter
 
 '''
 Al presionar el botón Mostrar pedir un número. Informar si el número es PRIMO o no.
+
+Nombre: Tomás León 
+Apellido: Curto Eivers
 '''
 
 class App(customtkinter.CTk):

@@ -8,6 +8,9 @@ import random
 
 '''
 Al presionar el botón Mostrar 5 veces un mensaje (utilizando el Dialog Alert) con números ASCENDENTES, desde el 1 al 5.
+
+Nombre: Tomás León 
+Apellido: Curto Eivers
 '''
 
 class App(customtkinter.CTk):
