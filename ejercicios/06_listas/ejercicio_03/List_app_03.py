@@ -24,8 +24,12 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
-    
+        maximo = self.lista_datos[0]
+        for i in range (1, 8, 1):
+            if maximo < self.lista_datos[i]:
+                maximo = self.lista_datos[i]
+        alert("EJ 03", "El máximo es "+str(maximo))
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

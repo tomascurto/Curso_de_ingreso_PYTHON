@@ -24,7 +24,11 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        minimo = self.lista_datos[0]
+        for i in range (1, 8, 1):
+            if minimo > self.lista_datos[i]:
+                minimo = self.lista_datos[i]
+        alert("EJ 04", "El mínimo es "+str(minimo))
     
     
 if __name__ == "__main__":

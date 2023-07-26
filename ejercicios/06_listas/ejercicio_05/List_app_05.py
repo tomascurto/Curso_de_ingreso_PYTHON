@@ -24,7 +24,10 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        sumatoria = 0
+        for i in range(0, 8, 1):
+            sumatoria += self.lista_datos[i]
+        alert("EJ 05", "La sumatoria es de "+str(sumatoria))
     
 if __name__ == "__main__":
     app = App()
